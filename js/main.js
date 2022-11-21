@@ -5,6 +5,13 @@ import './user-modal.js';
 import './user-form.js';
 import './scale.js';
 import './effect.js';
-import {similarPicture} from './data.js';
+import {renderSimilarList} from './similar-list.js';
+import { setUserFormSubmit } from './user-form.js';
+import { closeUserModal } from './user-modal.js';
+import {getData} from './api.js';
 
-similarPicture();
+getData((somePictures) => {
+  renderSimilarList(somePictures);
+});
+
+setUserFormSubmit(closeUserModal);
